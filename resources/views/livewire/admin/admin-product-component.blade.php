@@ -25,7 +25,7 @@
         <tr>
             <td>{{$product->id}}</td>
             <td class="image product-thumbnail">
-                <img src="{{ asset('assets/imgs/shop/product-')}}{{$product->id}}-1.jpg" alt="#">
+                <img src="{{ asset('assets/imgs/products')}}/{{$product->image}}" alt="#">
             </td>
             <td>{{$product->name}}</td>
             <td>{{$product->slug}}</td>
