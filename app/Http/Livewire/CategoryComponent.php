@@ -56,7 +56,8 @@ class CategoryComponent extends Component
         }
 
         $categories = Category::orderBy('name', 'ASC')->get();
-        return view('livewire.category-component', ['products' => $products, 'categories' => $categories, 'category' => $category]);
+        $newProducts = Product::orderBy('created_at', 'DESC')->get()->take(3);
+        return view('livewire.category-component', ['products' => $products, 'categories' => $categories, 'category' => $category, 'newProducts' => $newProducts]);
         // return view('livewire.category-component');
     }
 }

@@ -52,6 +52,7 @@ class ShopComponent extends Component
         }
 
         $categories = Category::orderBy('name', 'ASC')->get();
-        return view('livewire.shop-component', ['products' => $products, 'categories' => $categories]);
+        $newProducts = Product::orderBy('created_at', 'DESC')->get()->take(3);
+        return view('livewire.shop-component', ['products' => $products, 'categories' => $categories, 'newProducts' => $newProducts]);
     }
 }
