@@ -361,9 +361,7 @@
                                                 <li><a href="{{ route('admin.dasboard') }}">Dashboard</a></li>
                                                 <li><a href="{{route('admin.product')}}">Products</a></li>
                                                 <li><a href="{{route('admin.category')}}">Categories</a></li>
-                                                <li><a href="#">Coupons</a></li>
-                                                <li><a href="#">Orders</a></li>
-                                                <li><a href="#">Customers</a></li>                                          
+                                                <li><a href="{{route('admin.slider')}}">Home Slider Manager</a></li>
                                             </ul>
 
                                         @else
