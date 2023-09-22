@@ -9,12 +9,22 @@ use App\Models\Category;
 
 class AdminProductComponent extends Component
 {
-    public $productId;
+    public $productId;    
+    /**
+     * deleteProduct
+     *
+     * @return void
+     */
     public function deleteProduct(){
         $product = Product::find($this->productId);
         $product->delete();
         session()->flash('message', 'Product has been deleted successfully!');
-    }
+    }    
+    /**
+     * render
+     *
+     * @return void
+     */
     public function render()
     {
         $products = Product::paginate(10);

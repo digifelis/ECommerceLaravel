@@ -8,6 +8,9 @@ use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 
+/**
+ * AdminEditHomeSliderComponent
+ */
 class AdminEditHomeSliderComponent extends Component
 {
     use WithFileUploads;
@@ -20,7 +23,12 @@ class AdminEditHomeSliderComponent extends Component
     public $image;
     public $status;
     public $newImage;
-
+    
+    /**
+     * mount
+     *
+     * @return void
+     */
     public function mount(){
        
         $slide = HomeSlider::find($this->slide_id);
@@ -32,7 +40,12 @@ class AdminEditHomeSliderComponent extends Component
         $this->image = $slide->image;
         $this->status = $slide->status;
     }
-
+    
+    /**
+     * editHomeSlider
+     *
+     * @return void
+     */
     public function editHomeSlider(){
         $slide = HomeSlider::find($this->slide_id);
         $slide->title = $this->title;
@@ -50,7 +63,12 @@ class AdminEditHomeSliderComponent extends Component
         $slide->save();
         session()->flash('message', 'Slide has been updated successfully!');
         return redirect()->route('admin.slider');
-    }
+    }    
+    /**
+     * render
+     *
+     * @return void
+     */
     public function render()
     {
        

@@ -27,11 +27,21 @@ class AdminProductAddComponent extends Component
     public $quantity;
     public $category_id;
     public $images;
-
+    
+    /**
+     * generateSlug
+     *
+     * @return void
+     */
     public function generateSlug(){
         $this->slug = Str::slug($this->name, '-');
     }
-
+    
+    /**
+     * addProduct
+     *
+     * @return void
+     */
     public function addProduct(){
         $product = new Product();
         $product->name = $this->name;
@@ -54,7 +64,12 @@ class AdminProductAddComponent extends Component
         session()->flash('message', 'Product has been created successfully!');
     }
 
-
+    
+    /**
+     * render
+     *
+     * @return void
+     */
     public function render()
     {
         $categories = Category::all();

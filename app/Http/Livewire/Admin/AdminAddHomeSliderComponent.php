@@ -18,7 +18,12 @@ class AdminAddHomeSliderComponent extends Component
     public $offer;
     public $image;
     public $status;
-
+    
+    /**
+     * addHomeSlider
+     *
+     * @return void
+     */
     public function addHomeSlider(){
         $slider = new HomeSlider();
         $slider->title = $this->title;
@@ -34,7 +39,12 @@ class AdminAddHomeSliderComponent extends Component
         session()->flash('message', 'Slide has been created successfully!');
         return redirect()->route('admin.slider');
 
-    }
+    }    
+    /**
+     * render
+     *
+     * @return void
+     */
     public function render()
     {
         return view('livewire.admin.admin-add-home-slider-component');

@@ -26,11 +26,22 @@ class AdminProductEditComponent extends Component
     public $quantity;
     public $category_id;
     public $newImage;
-
+    
+    /**
+     * generateSlug
+     *
+     * @return void
+     */
     public function generateSlug(){
         $this->slug = Str::slug($this->name, '-');
     } 
-
+    
+    /**
+     * mount
+     *
+     * @param  mixed $product_id
+     * @return void
+     */
     public function mount($product_id)
     {
         $product = Product::where('id', $product_id)->first();
@@ -48,7 +59,12 @@ class AdminProductEditComponent extends Component
         $this->image = $product->image;
         $this->product_id = $product->id;
     }
-
+    
+    /**
+     * editProduct
+     *
+     * @return void
+     */
     public function editProduct(){
         $product = Product::find($this->product_id);
         $product->name = $this->name;
@@ -69,7 +85,12 @@ class AdminProductEditComponent extends Component
         }
         $product->save();
         session()->flash('message', 'Product has been updated successfully!');
-    }
+    }    
+    /**
+     * render
+     *
+     * @return void
+     */
     public function render()
     {
         $categories = Category::all();
